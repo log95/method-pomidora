@@ -1,0 +1,23 @@
+memory: 2048
+cpus: 2
+provider: virtualbox
+
+authorize: 'C:\Users\log\.ssh\id_rsa.pub'
+keys:
+  - 'C:\Users\log\.ssh\id_rsa'
+
+folders:
+  - map: 'C:\Users\log\PhpstormProjects\pomidoro'
+    to: /home/vagrant/pomidoro
+sites:
+  - map: pomidoro.test
+    to: /home/vagrant/pomidoro/public
+databases:
+  - homestead
+features:
+  - mariadb: false
+  - ohmyzsh: false
+  - webdriver: false
+
+name: pomidoro
+hostname: pomidoro
