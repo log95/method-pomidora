@@ -1,0 +1,15 @@
+.table-history .history-column-title {
+    width: 25%;
+}
+
+.table-history .history-column-description {
+    width: 60%;
+}
+
+.table-history .history-column-date {
+    width: 10%;
+}
+
+.table-history .history-column-actions {
+    width: 5%;
+}

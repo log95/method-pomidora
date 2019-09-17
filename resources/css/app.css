@@ -1,0 +1,57 @@
+#app .form-row.new-task {
+    margin-bottom: 20px;
+}
+
+#app .task-title-column-wrapper {
+    width: 25%;
+}
+
+#app .task-description-column-wrapper {
+    width: 70%;
+}
+
+#app .task-actions-column-wrapper {
+    width: 5%;
+}
+
+#app .active-task-filter {
+    text-decoration: underline;
+}
+
+#app .tracking-card {
+    max-width: 18rem;
+}
+
+#app .timer-view {
+    font-size: 30px;
+}
+
+#app .task-edit-title,
+#app .task-edit-description
+{
+    display: none;
+}
+
+#app .task-in-edit .task-edit-title,
+#app .task-in-edit .task-edit-description
+{
+    display: inline-block;
+}
+
+#app .task-in-edit .task-title,
+#app .task-in-edit .task-description
+{
+    display: none;
+}
+
+/* Может на всё навесить? */
+#app .btn:focus, #app .btn:active:focus, #app .btn.active:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.blockquote-pomidoro {
+    margin-top: 140px;
+    margin-bottom: 60px;
+    color: rgba(0, 0, 0, 0.8);
+}
