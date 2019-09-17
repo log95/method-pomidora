@@ -21,14 +21,12 @@ class SocialAccountController extends Controller
             $socialUserAccount = Socialite::driver($provider)->user();
             $idUser = $socialAccountService->getUserIdBySocialAccountData($socialUserAccount, $provider);
         } catch (\Throwable $e) {
-            Log::warning($e->getMessage());
-            // TODO: add redirect message to session, it's not ok
-            return redirect('/');
+            Log::error($e->getMessage());
+            return redirect()->to('/')->with('authProviderError', true);
         }
 
         Auth::loginUsingId($idUser, true);
 
-        // TODO: add redirect message to session, it's ok
-        return 'OK';
+        return redirect()->to('/');
     }
 }

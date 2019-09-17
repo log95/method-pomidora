@@ -3,9 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Date;
 
 class SocialAccountService extends Model
 {
+    /**
+     * Get user id in out db based on social account data from provider.
+     * @param \Laravel\Socialite\Two\User $socialAccountData
+     * @param string $socialProvider
+     * @return mixed
+     */
     public function getUserIdBySocialAccountData(\Laravel\Socialite\Two\User $socialAccountData, string $socialProvider)
     {
         if (!$socialAccountData->getId()) {
@@ -36,6 +43,11 @@ class SocialAccountService extends Model
             $user = User::create([
                 'name' => $socialAccountData->getName(),
                 'email' => $socialEmail,
+                'email_verified_at' => Date::now(),
+            ]);
+        } else if (!$user->hasVerifiedEmail()) {
+            User::update([
+                'email_verified_at' => Date::now(),
             ]);
         }
 
