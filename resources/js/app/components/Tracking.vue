@@ -52,6 +52,11 @@
     const TRACKING_POMIDOR_NUMBER_STORAGE_ID = 'TRACKING_POMIDOR_NUMBER';
     const TRACKING_LAST_VISIT_STORAGE_ID = 'TRACKING_LAST_VISIT';
 
+    function getCurrentDateString() {
+        let currentDate = new Date();
+        return new Date(currentDate.getTime() - (currentDate.getTimezoneOffset() * 60000)).toJSON().slice(0,10);
+    }
+
     export default {
         data: function () {
             return {
@@ -75,18 +80,14 @@
          * Reset pomidor number and work state on each new day.
          */
         created: function() {
-            let lastVisitTimestamp = localStorage.getItem(TRACKING_LAST_VISIT_STORAGE_ID);
-            if (!lastVisitTimestamp) {
-                localStorage.setItem(TRACKING_LAST_VISIT_STORAGE_ID, (new Date()).getTime());
+            let lastVisitDate = localStorage.getItem(TRACKING_LAST_VISIT_STORAGE_ID);
+            let currentDate = getCurrentDateString();
+            if (!lastVisitDate) {
+                localStorage.setItem(TRACKING_LAST_VISIT_STORAGE_ID, currentDate);
                 return;
             }
 
-            let currentDate = new Date();
-            currentDate.setHours(0,0,0,0);
-            let previousDate = new Date(parseInt(lastVisitTimestamp));
-            previousDate.setHours(0,0,0,0);
-
-            if (currentDate.getTime() === previousDate.getTime()) {
+            if (currentDate === lastVisitDate) {
                 let previousWorkState = localStorage.getItem(TRACKING_WORK_STATE_STORAGE_ID);
                 if (previousWorkState) {
                     this.workState = previousWorkState;
@@ -97,7 +98,7 @@
                     this.pomidorNumber = parseInt(previousPomidorNumber);
                 }
             } else {
-                localStorage.setItem(TRACKING_LAST_VISIT_STORAGE_ID, currentDate.getTime());
+                localStorage.setItem(TRACKING_LAST_VISIT_STORAGE_ID, currentDate);
             }
         },
         computed: {
