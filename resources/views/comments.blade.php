@@ -25,7 +25,7 @@
         */
         (function() { // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');
-            s.src = 'https://' + '{{ env('DISQUS_SUBDOMAIN') }}' + '.disqus.com/embed.js';
+            s.src = 'https://' + '{{ config('app.disqus_subdomain') }}' + '.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
         })();

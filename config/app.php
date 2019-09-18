@@ -53,6 +53,8 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    // Domain without protocol
+    'domain' => env('DOMAIN', 'test.ru'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -228,4 +230,7 @@ return [
 
     ],
 
+    'disqus_subdomain' => env('DISQUS_SUBDOMAIN'),
+
+    'fio_owner_genitive' => env('FIO_OWNER_GENITIVE'),
 ];

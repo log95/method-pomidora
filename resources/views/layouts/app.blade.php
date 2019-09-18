@@ -117,7 +117,7 @@
                         <h5>@lang('applayout.Contacts')</h5>
                         <ul class="list-unstyled">
                             <li>
-                                @lang('applayout.Email'): <a href="mailto:{{ env('MAIL_OWNER') }}">{{ env('MAIL_OWNER') }}</a>
+                                @lang('applayout.Email'): <a href="mailto:{{ config('mail.mail_owner') }}">{{ config('mail.mail_owner') }}</a>
                             </li>
                         </ul>
                     </div>
@@ -130,7 +130,7 @@
                 </div>
                 <div>
                     &copy; {{ date("Y") }}
-                    <a href="/"> {{ env('DOMAIN') }}</a>.
+                    <a href="/"> {{ config('app.domain') }}</a>.
                     @lang('applayout.Copyright')
                 </div>
             </div>

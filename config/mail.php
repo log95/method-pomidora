@@ -133,4 +133,6 @@ return [
 
     'log_channel' => env('MAIL_LOG_CHANNEL'),
 
+    // Owner site mail
+    'mail_owner' => env('MAIL_OWNER'),
 ];
