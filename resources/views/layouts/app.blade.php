@@ -124,9 +124,15 @@
                     <div class="col-md-2 col-sm-1"></div>
                 </div>
             </div>
-            <div class="footer-copyright text-center py-3">&copy; {{ date("Y") }}
-                <a href="/"> {{ env('DOMAIN') }}</a>.
-                @lang('applayout.Copyright')
+            <div class="footer-copyright text-center py-3">
+                <div>
+                    The Pomodoro Technique® by Francesco Cirillo.
+                </div>
+                <div>
+                    &copy; {{ date("Y") }}
+                    <a href="/"> {{ env('DOMAIN') }}</a>.
+                    @lang('applayout.Copyright')
+                </div>
             </div>
         </footer>
 
