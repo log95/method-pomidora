@@ -68,6 +68,8 @@
                 timerState: TimerState.INACTIVE,
                 // Seconds left to changing work state.
                 timerSecondsLeft: this.$store.state.settings.pomidorDuration * 60,
+                // Prevent unnecessary actions in workState watch when init process (created lifehook)
+                isInitProcess: true,
 
                 // Localized messages.
                 startTimerMess: transMessages['START_TIMER'],
@@ -84,10 +86,7 @@
             let currentDate = getCurrentDateString();
             if (!lastVisitDate) {
                 localStorage.setItem(TRACKING_LAST_VISIT_STORAGE_ID, currentDate);
-                return;
-            }
-
-            if (currentDate === lastVisitDate) {
+            } else if (currentDate === lastVisitDate) {
                 let previousWorkState = localStorage.getItem(TRACKING_WORK_STATE_STORAGE_ID);
                 if (previousWorkState) {
                     this.workState = previousWorkState;
@@ -100,6 +99,11 @@
             } else {
                 localStorage.setItem(TRACKING_LAST_VISIT_STORAGE_ID, currentDate);
             }
+
+            let self = this;
+            setTimeout(function () {
+                self.isInitProcess = false;
+            }, 100);
         },
         computed: {
             /**
@@ -220,13 +224,15 @@
             workState: function (newState, oldState) {
                 this.timerSecondsLeft = this.totalTimerSeconds;
 
-                this.playSoundOnChangedWorkState();
+                if (!this.isInitProcess) {
+                    this.playSoundOnChangedWorkState();
 
-                if (newState === WorkState.WORK) {
-                    this.pomidorNumber++;
+                    if (newState === WorkState.WORK) {
+                        this.pomidorNumber++;
+                    }
+
+                    localStorage.setItem(TRACKING_WORK_STATE_STORAGE_ID, newState);
                 }
-
-                localStorage.setItem(TRACKING_WORK_STATE_STORAGE_ID, newState);
             },
             pomidorNumber: function (newPomidorNumber) {
                 localStorage.setItem(TRACKING_POMIDOR_NUMBER_STORAGE_ID, newPomidorNumber);
