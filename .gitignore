@@ -5,6 +5,7 @@
 /vendor
 /.idea
 /.vagrant
+/v8-compile-cache-0
 .env
 .phpunit.result.cache
 Homestead.json
