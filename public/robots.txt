@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://method-pomidora.ru/sitemap.xml

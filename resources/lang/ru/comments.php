@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'PageTitle' => 'Комментарии',
+    'PageTitle' => 'Комментарии, отзывы',
+    'PageHeader' => 'Комментарии',
 ];

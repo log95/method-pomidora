@@ -4,14 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Метод помидора">
-    <meta name="keywords" content="метод помидора, pomodoro, продуктивность">
-    <title>@yield('title', config('app.name'))</title>
+    <meta name="description" content="Метод помидора - онлайн приложение по эффективному решению задач по одноимённой технике управления временем. ">
+    <meta name="keywords" content="метод помидора, метод помидора онлайн, метод помидоров тайм, метод помидора 25 минут, метод помидора приложение, pomodoro, pomodoro timer online">
+    <title>@yield('title', config('app.name')) : {{ config('app.name') }}</title>
 
     <link href="{{ mix('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ mix('css/applayout.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     @stack('head_css')
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(55395151, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/55395151" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
     <div class="wrapper">
