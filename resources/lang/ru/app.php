@@ -6,8 +6,8 @@ return [
     // JS
     'TASK_INVALID_DATA_TITLE' => 'Неверные данные',
     'TASK_INVALID_DATA_DESC' => 'Название или описание задачи не должно быть пустым.',
-    'TASK_TITLE_PLACEHOLDER' => 'Название',
-    'TASK_DESCRIPTION_PLACEHOLDER' => 'Описание',
+    'TASK_TITLE_PLACEHOLDER' => 'Название задачи',
+    'TASK_DESCRIPTION_PLACEHOLDER' => 'Описание задачи',
     'ADD_TASK_PLACEHOLDER' => 'Добавить',
     'ACTIVE_TASKS' => 'Активные задачи',
     'COMPLETED_TASKS_TODAY' => 'Завершённые сегодня',
