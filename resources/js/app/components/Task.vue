@@ -137,6 +137,7 @@
                     this.$store.commit('tasks/editTask', {
                         'id': this.task['id'],
                         'backendId': this.task['backendId'],
+                        'completed': this.task['completed'],
                         'title': newTitle,
                         'description': newDescription,
                     });
