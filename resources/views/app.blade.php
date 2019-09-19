@@ -3,8 +3,10 @@
 @section('content')
     @if(session()->has('authProviderError'))
         <div class="container">
-            <div class="d-flex justify-content-center">
-                @lang('app.authProviderError')
+            <div>
+                <div class="alert alert-warning" role="alert">
+                    @lang('app.authProviderError')
+                </div>
             </div>
         </div>
     @endif

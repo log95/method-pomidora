@@ -46,7 +46,7 @@ class SocialAccountService extends Model
                 'email_verified_at' => Date::now(),
             ]);
         } else if (!$user->hasVerifiedEmail()) {
-            User::update([
+            $user->update([
                 'email_verified_at' => Date::now(),
             ]);
         }
